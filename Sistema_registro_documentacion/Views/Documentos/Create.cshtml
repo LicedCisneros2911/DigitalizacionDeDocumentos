@@ -1,0 +1,132 @@
+﻿@model Sistema_registro_documentacion.Models.Documento
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/css/Documento.css" rel="stylesheet" />
+<h1 style="text-align:center;">Agregar un nuevo informe</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label asp-for="tipo" class="control-label"><b>Tipo de informe</b></label>
+                    <select asp-for="tipo" class="form-control" asp-items="ViewBag.tipoList" style="border-bottom-color: black; border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; ">
+                       
+                    </select>
+                    <span asp-validation-for="tipo" class="text-danger"></span>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label asp-for="folder" class="control-label"><b>N° folder</b></label>
+                        <select style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; "
+                               asp-for="folder" asp-items="ViewBag.folderList" class="form-control"></select>
+                        <span asp-validation-for="folder" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label asp-for="titulo" class="control-label"><b>Titulo</b></label>
+                        <input style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; "
+                               asp-for="titulo" class="form-control" />
+                        <span asp-validation-for="titulo" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label asp-for="cite" class="control-label"><b>CITE</b></label>
+                        <input style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; "
+                               asp-for="cite" class="form-control" />
+                        <span asp-validation-for="cite" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label asp-for="de" class="control-label"><b>De:</b></label>
+                        <textarea style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; height: 120px; "
+                                  asp-for="de" class="form-control"></textarea>
+                        <span asp-validation-for="de" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label asp-for="via" class="control-label"><b>Via:</b></label>
+                        <textarea style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; height: 120px; "
+                                  asp-for="via" class="form-control"></textarea>
+                        <span asp-validation-for="via" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label asp-for="a" class="control-label"><b>A:</b></label>
+                        <textarea asp-for="a" class="form-control"
+                                  style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; height: 120px; "></textarea>
+                        <span asp-validation-for="a" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label asp-for="Ref" class="control-label"><b>Referencia</b></label>
+                        <input style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; "
+                               asp-for="Ref" class="form-control" />
+                        <span asp-validation-for="Ref" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label asp-for="fecha" class="control-label"><b>Fecha</b></label>
+                        <input style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; "
+                               asp-for="fecha" class="form-control" />
+                        <span asp-validation-for="fecha" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label asp-for="descripcion" class="control-label"><b>Descripcion</b></label>
+                        <textarea asp-for="descripcion" class="form-control"
+                                  style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; height: 500px; "></textarea>
+                        <span asp-validation-for="descripcion" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-control" style="border-color: rgb(0 0 0); box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px rgba(128, 128, 128,0.6); outline: 0 none; height: 50px; ">
+                <input asp-for="filefoto" accept=".pdf"/>
+                <span asp-validation-for="filefoto" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-primary" style="font-size:20px" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Volver</a>
+</div>
+
+<script>
+    window.onload = function () {
+        var v = '@ViewBag.msg';
+        var msg = v;
+        if (msg != null && msg != "") {
+            if (msg == "Exito") {
+                $('#myModalSuccess').modal('show');
+            }
+            else {
+                $('#myModalError').modal('show');
+            }
+        }
+    }
+</script>

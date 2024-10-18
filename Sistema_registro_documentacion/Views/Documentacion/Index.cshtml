@@ -1,0 +1,137 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid pl-4 pt-4">
+    <h3 class="text-dark font-weight-bold" style="text-align:center;">Registro de documentos</h3>
+    @*<h6 class="text-muted font-weight-bold">Lista de documentos Registrados</h6>*@
+</div>
+
+<div class="container mt-5">
+    <div class="row justify-content-start justify-content-sm-end mb-3">
+        <div class="col-auto">
+            <button type="button" data-toggle="modal"  class="btn btn-primary" data-target="#documentoModal" onclick="Nuevo()">Nuevo registro</button>
+        </div>
+    </div>
+</div>
+
+<div class="px-5 mx-5">
+    <table class="table">
+        <thead style="background-color:black; color:white;">
+            <tr>
+                <th scope="col">Nro</th>
+                <th scope="col">Id</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Cite</th>
+                <th scope="col">De</th>
+                <th scope="col">Via</th>
+                <th scope="col">A</th>
+                <th scope="col">Ref</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Foto</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="documentos">
+        </tbody>
+    </table>
+</div>
+<div class="modal fade" id="documentoModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Datos de la documentacion</h5>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="titulo">Titulo</label>
+                            <input type="hidden" id="Id" name="Id" />
+                            <input type="text" class="form-control" id="titulo" name="titulo">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="cite">Cite</label>
+                            <input type="text" class="form-control" id="cite" name="cite">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="de">De</label>
+                            <input type="text" class="form-control" id="de" name="de">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="via">Via</label>
+                            <input type="text" class="form-control" id="via" name="via">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="a">A</label>
+                            <input type="text" class="form-control" id="a" name="a">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="ref">Ref</label>
+                            <input type="text" class="form-control" id="ref" name="ref">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="fecha">Fecha</label>
+                            <input type="datetime" class="form-control" id="fecha" name="fecha">
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="descipcion">Descripcion</label>
+                            <input type="text" class="form-control" id="descripcion" name="descripcion">
+                        </div>
+                    </div>
+                </div>                                                            
+                <div class="form-group">
+                    Sube una Imagen:
+                    <input type="file" class="form-control" name="Foto" id="Foto" onchange="SubirFoto(event)">
+                </div>
+                <hr />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="Guardar()">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="borrarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Borrar Estudiante</h5>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="IdBorrar" name="IdBorrar">
+                <p>Esta seguro que desea borrar?</p>
+            </div>
+            <!--onclick="BorrarDatos()"-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" onclick="Borrar()">Borrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

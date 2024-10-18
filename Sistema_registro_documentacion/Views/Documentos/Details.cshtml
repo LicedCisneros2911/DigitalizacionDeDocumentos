@@ -1,0 +1,93 @@
+﻿@model Sistema_registro_documentacion.Models.Documento
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center;">DETALLE DEL INFORME</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.formulario_Tipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.formulario_Tipo.nombre_tipo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.formulario_Folder)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.formulario_Folder.nombre_folder)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.titulo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.titulo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.cite)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.cite)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.de)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.de)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.via)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.via)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.a)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.a)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Ref)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Ref)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.foto)
+        </dt>
+        @if (@Model.foto!=null)
+        {
+            <dt class="col-sm-2">
+                @Html.ActionLink("Ver Documento", "ShowPDF", "Documentos", new { id = @Model.id })
+            </dt>
+        }
+        else
+        {
+            <dd class="col-sm-10">
+               No tiene documento:(
+            </dd>
+        }
+    </dl>
+</div>
+<div>
+    <a class="btn btn-primary" asp-action="Edit" asp-route-id="@Model.id">Editar</a> |
+    <a asp-action="Index">Volver</a>
+</div>

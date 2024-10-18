@@ -1,0 +1,31 @@
+﻿@model Sistema_registro_documentacion.Models.Login
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/css/Login.css" rel="stylesheet" />
+    <div class="row" >
+        <div class="col-md-12">           
+            <form class="box" method="post" style="background: linear-gradient(to bottom, #ffffff 3%, #B6191C 92%); ">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <i style="font-size:50px; color:black;" class="bi bi-people-fill"></i>
+                <div class="form-group">
+                    <label asp-for="usuario" class="control-label"></label>
+                    <input style="background-color:white; color:black;" placeholder="Username" asp-for="usuario" class="form-control" />
+                    <span asp-validation-for="usuario" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="password" class="control-label"></label>
+                    <input style="background-color:white; color:black;" placeholder="Password" asp-for="password" class="form-control" />
+                    <span asp-validation-for="password" class="text-danger"></span>
+                </div>
+                <button type="submit" value="Login" class="btn btn-primary" style="background-color:black; color:white;">Login</button>
+            </form>
+        </div>
+    </div>
+
+
+
+

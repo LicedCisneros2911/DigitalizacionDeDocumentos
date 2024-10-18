@@ -1,0 +1,100 @@
+create database Registro_documental;
+use Registro_documental;
+
+create table Usuario(
+id int not null auto_increment,
+nombre varchar(150) not null,
+apppaterno varchar (150) not null,
+appmaterno varchar (150) null,
+telefono INT NOT null,
+estado VARCHAR(50) NOT null,
+rol VARCHAR(70) not NULL,
+usuario varchar(150)not NULL,
+password varchar(150)not NULL,
+PRIMARY KEY (id)
+);
+
+INSERT INTO usuario VALUES(NULL,'asd','asd',null,67543456,'Activo','Administrador','asd@gmail.com','asd')
+INSERT INTO usuario VALUES(NULL,'Susana','Sanchez',null,67543456,'Activo','Lector','lector@gmail.com','56')
+
+SELECT * from usuario 
+
+create table Documento(
+id int not null auto_increment primary KEY,
+tipo VARCHAR(150)NOT NULL,
+folder VARCHAR(50)NOT NULL,
+titulo VARCHAR(150)NOT NULL,
+cite VARCHAR(150)not null,
+de VARCHAR(150)not null,
+via VARCHAR(150),
+a VARCHAR(150)not null,
+ref VARCHAR(200)not null,
+fecha datetime,
+descripcion varchar(2000)not null,
+foto LONGBLOB NULL
+);
+
+SELECT * FROM documento;
+
+create table formulario_tipo(
+id int not null auto_increment primary KEY,
+nombre_tipo VARCHAR(150)NOT NULL
+);
+
+ALTER TABLE documento MODIFY tipo INTEGER; 
+ALTER TABLE documento ADD CONSTRAINT fk_tipo FOREIGN KEY (tipo) REFERENCES formulario_tipo(id);
+
+ALTER TABLE documento MODIFY folder INTEGER; 
+ALTER TABLE documento ADD CONSTRAINT fk_folder FOREIGN KEY (folder) REFERENCES formulario_folder(id);
+SELECT * FROM documento;
+
+INSERT INTO formulario_tipo VALUES (NULL,'TODOS');
+INSERT INTO formulario_tipo VALUES (NULL,'DOCUMENTO RECIBIDO');
+INSERT INTO formulario_tipo VALUES (NULL,'INFORME TECNICO');
+INSERT INTO formulario_tipo VALUES (NULL,'CIRCULACION INTERNA');
+INSERT INTO formulario_tipo VALUES (NULL,'INSTRUCTIVO');
+
+UPDATE formulario_tipo SET tipo='2' WHERE tipo='DOCUMENTO RECIBIDO';      
+
+SELECT tipo FROM documento WHERE tipo='1';
+SELECT * FROM formulario_tipo;
+
+
+create table formulario_gestion(
+id int not null auto_increment primary KEY,
+nombre_gestion VARCHAR(50)NOT NULL
+);
+
+create table formulario_folder(
+id int not null auto_increment primary KEY,
+nombre_folder VARCHAR(70)NOT NULL
+);
+
+INSERT INTO formulario_folder VALUES (NULL,'F-09');
+SELECT * FROM formulario_folder;
+UPDATE documento SET folder='4' WHERE folder='F-09'; 
+
+INSERT INTO formulario_gestion VALUES (NULL,'2021');
+INSERT INTO formulario_gestion VALUES (NULL,'2020');
+INSERT INTO formulario_gestion VALUES (NULL,'2019');
+
+SELECT * FROM  formulario_gestion
+
+ALTER DATABASE
+    Registro_documental
+    CHARACTER SET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+    
+ALTER TABLE
+    
+    CONVERT TO CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+    
+ALTER TABLE
+    
+    CONVERT TO CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
+
+insert into Documento values(null,'Informe tecnico','EXP01','Informe tecnico','CR456', 'Lic. Ramirez','Oscar quevedo','Lic cinthia choque','Solicitud de mantenimiento',NULL,'Caracteristicas de la maquina: modelo DELL VOSTRO',NULL);
+insert into Documento values(null,'Informe tecnico','EXP01','Informe tecnico','CR456', 'Lic. Ramirez','Oscar quevedo','Lic cinthia choque','Solicitud de mantenimiento',NULL,'Caracteristicas de la maquina: modelo DELL VOSTRO',null);
